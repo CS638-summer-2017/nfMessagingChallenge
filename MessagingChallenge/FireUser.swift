@@ -23,7 +23,7 @@ class FireUser {
         messages = []
     }
     
-    func login() {
+    func login(userName: String?, password: String?) {
         //we'll get this as a result of logging in
         let userToken: String
         //The url we want to hit to login
@@ -61,8 +61,9 @@ class FireUser {
                 print("A really strange thing happened.")
                 return
             }
-            //If we're here, now we have a message response, and a status!!
             
+            //If we're here, now we have a message response, and a status!!
+            let header = messageResponse.allHeaderFields
             //Finding out what the status was...
             switch status {
             case .created:

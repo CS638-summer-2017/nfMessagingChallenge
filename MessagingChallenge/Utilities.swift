@@ -8,6 +8,58 @@
 
 import Foundation
 
+/*
+func mainDemo() {
+    //jumps us to the main thread, code done here is in the main thread
+    DispatchQueue.main.sync {
+        <#code#>
+    }
+    
+}
+*/
+
+func isFirstLaunch() -> Bool {
+    let defaults = UserDefaults.standard
+    
+    if defaults.bool(forKey: "isFirstLaunch") == true {
+        print("First Launch!")
+        defaults.set(false, forKey: "isFirstLaunch")
+        return true
+    } else {
+        print("Not first launch")
+        return false
+    }
+}
+
+func isLoggedIn() -> Bool {
+    let defaults = UserDefaults.standard
+    
+    guard let authToken = defaults.string(forKey: "user-auth-token")
+        else {
+            print("Something bad happened")
+            return false
+    }
+    
+    if authToken == "No Auth Token" {
+        print("Not Logged in")
+        return false
+    } else {
+        return true
+    }
+}
+
+func applicationDirectory() -> NSURL {
+    let fileManager = FileManager.default
+    
+    let urls = fileManager.urls(
+        for: FileManager.SearchPathDirectory.documentDirectory,
+        in: FileManager.SearchPathDomainMask.userDomainMask) as [NSURL]
+    
+    let documentsURL = urls[0]
+    
+    return documentsURL
+}
+
 public enum HTTPStatusCode: Int {
     case `continue`                   = 100
     case switchingProtocols           = 101

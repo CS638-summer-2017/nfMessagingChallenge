@@ -10,7 +10,8 @@
 		195983251F44E9C7002027D1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195983241F44E9C7002027D1 /* Utilities.swift */; };
 		195983271F44EB0B002027D1 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195983261F44EB0B002027D1 /* Messages.swift */; };
 		195983291F44ED91002027D1 /* FireUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195983281F44ED91002027D1 /* FireUser.swift */; };
-		198D42441F44AC5A0014572A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D42431F44AC5A0014572A /* LoginViewController.swift */; };
+		19BBD2951F461363006E9B28 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BBD2941F461363006E9B28 /* MessagesTableViewController.swift */; };
+		19BBD2971F461372006E9B28 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BBD2961F461372006E9B28 /* LoginTableViewController.swift */; };
 		19D138601F4370FF00ED7060 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D1385F1F4370FF00ED7060 /* AppDelegate.swift */; };
 		19D138651F4370FF00ED7060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D138631F4370FF00ED7060 /* Main.storyboard */; };
 		19D138671F4370FF00ED7060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19D138661F4370FF00ED7060 /* Assets.xcassets */; };
@@ -21,7 +22,8 @@
 		195983241F44E9C7002027D1 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		195983261F44EB0B002027D1 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		195983281F44ED91002027D1 /* FireUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireUser.swift; sourceTree = "<group>"; };
-		198D42431F44AC5A0014572A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		19BBD2941F461363006E9B28 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
+		19BBD2961F461372006E9B28 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		19D1385C1F4370FF00ED7060 /* MessagingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D1385F1F4370FF00ED7060 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19D138641F4370FF00ED7060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,11 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				19D1385F1F4370FF00ED7060 /* AppDelegate.swift */,
-				198D42431F44AC5A0014572A /* LoginViewController.swift */,
 				195983281F44ED91002027D1 /* FireUser.swift */,
 				195983241F44E9C7002027D1 /* Utilities.swift */,
 				195983261F44EB0B002027D1 /* Messages.swift */,
 				19D138631F4370FF00ED7060 /* Main.storyboard */,
+				19BBD2941F461363006E9B28 /* MessagesTableViewController.swift */,
+				19BBD2961F461372006E9B28 /* LoginTableViewController.swift */,
 				19D138661F4370FF00ED7060 /* Assets.xcassets */,
 				19D138681F4370FF00ED7060 /* LaunchScreen.storyboard */,
 				19D1386B1F4370FF00ED7060 /* Info.plist */,
@@ -147,8 +150,9 @@
 				195983251F44E9C7002027D1 /* Utilities.swift in Sources */,
 				195983291F44ED91002027D1 /* FireUser.swift in Sources */,
 				195983271F44EB0B002027D1 /* Messages.swift in Sources */,
-				198D42441F44AC5A0014572A /* LoginViewController.swift in Sources */,
 				19D138601F4370FF00ED7060 /* AppDelegate.swift in Sources */,
+				19BBD2951F461363006E9B28 /* MessagesTableViewController.swift in Sources */,
+				19BBD2971F461372006E9B28 /* LoginTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
