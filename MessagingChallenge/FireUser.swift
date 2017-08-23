@@ -12,7 +12,7 @@ class FireUser {
     let id: Int
     let userName: String
     let password: String
-    let userToken: String
+    var userToken: String
     let messages: [Message]
     
     init() {
@@ -24,8 +24,16 @@ class FireUser {
     }
     
     func login(userName: String?, password: String?) {
-        //we'll get this as a result of logging in
-        let userToken: String
+        guard let newName = userName else {
+            return;
+        }
+        guard let newPassword = password else {
+            return;
+        }
+        if newName.isEmpty || newPassword.isEmpty{
+            return;
+        }
+        
         //The url we want to hit to login
         let url = URL(string: "http://198.150.10.30:8080/fireside/login/")
         //The request object
@@ -37,8 +45,8 @@ class FireUser {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let httpBodyData = """
     {
-    "userName": "nflahavan",
-    "password": "goodPassword"
+    "userName": "\(newName)",
+    "password": "\(newPassword)"
     }
     """
         request.httpBody = httpBodyData.data(using: String.Encoding.utf8)
@@ -63,7 +71,6 @@ class FireUser {
             }
             
             //If we're here, now we have a message response, and a status!!
-            let header = messageResponse.allHeaderFields
             //Finding out what the status was...
             switch status {
             case .created:
@@ -84,6 +91,12 @@ class FireUser {
             default:
                 print("Weird Status: \(status)")
             }
+            
+            let header = messageResponse.allHeaderFields
+            
+            self.userToken = header["user-auth-token"] as! String
+            
+            print("user-auth-token: \(self.userToken)")
         }
         
         task.resume()

@@ -101,7 +101,7 @@ class MessagesTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCreateAccount" {
-            print("about to go to login view")
+            print("about to go to login/create account view")
             
             let controller = segue.destination as! LoginTableViewController
             
