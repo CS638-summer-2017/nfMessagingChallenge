@@ -29,7 +29,7 @@ public struct loginMessage: Codable, CustomStringConvertible {
     var message: String
     
     public var description: String {
-        return "\n\(message)"
+        return "\(message)"
     }
 }
 

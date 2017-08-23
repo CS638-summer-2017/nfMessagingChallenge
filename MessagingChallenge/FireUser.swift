@@ -10,8 +10,8 @@ import Foundation
 
 class FireUser {
     let id: Int
-    let userName: String
-    let password: String
+    var userName: String
+    var password: String
     var userToken: String
     let messages: [Message]
     
@@ -23,15 +23,19 @@ class FireUser {
         messages = []
     }
     
-    func login(userName: String?, password: String?) {
+    /*
+         This function takes the username and password provided and logs into the fireside server.
+         It needs string optionals for username and password (It will check to make sure they aren't nil or empty) and it returns a boolean, true if login was sucessful, and false if it wasn't
+    */
+    func login(userName: String?, password: String?) -> Bool{
         guard let newName = userName else {
-            return;
+            return false
         }
         guard let newPassword = password else {
-            return;
+            return false
         }
         if newName.isEmpty || newPassword.isEmpty{
-            return;
+            return false
         }
         
         //The url we want to hit to login
@@ -74,32 +78,22 @@ class FireUser {
             //Finding out what the status was...
             switch status {
             case .created:
-                print("created")
-                //Default "bucket" data
-                guard let returnedData = data else {
-                    print("no data returned")
-                    return
-                }
+                print("In case: created")
                 
-                //JSON Decoder
-                let decoder = JSONDecoder()
-                //try? converts error handling into optional which is easier to work with...
-                //"we tell it we want actual type by referring to .self"
-                let returnedMessage = try? decoder.decode([loginMessage].self, from: returnedData)
+                let header = messageResponse.allHeaderFields
                 
-                print(returnedMessage ?? String(describing: returnedData))
+                self.userToken = header["user-auth-token"] as! String
+                self.userName = newName
+                self.password = newPassword
+                print("userToken: \(self.userToken)\nuserName: \(self.userName)\npassword: \(self.password)")
             default:
-                print("Weird Status: \(status)")
+                print("In case: deafault.\nWeird Status: \(status)")
             }
-            
-            let header = messageResponse.allHeaderFields
-            
-            self.userToken = header["user-auth-token"] as! String
-            
-            print("user-auth-token: \(self.userToken)")
         }
         
         task.resume()
         print("after resume()")
+        
+        return true
     }
 }

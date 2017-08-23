@@ -23,10 +23,11 @@ class MessagesTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("in MessagesTableViewController.viewDidAppear")
         if isLoggedIn() {
             print("logged in")
         } else {
-            print("not logged in")
+            print("Not logged in")
             //perform segue programatically
             performSegue(withIdentifier: "showCreateAccount", sender: nil)
             
