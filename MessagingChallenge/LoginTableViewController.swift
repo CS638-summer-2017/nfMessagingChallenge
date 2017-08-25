@@ -12,16 +12,34 @@ class LoginTableViewController: UITableViewController {
 
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
     var fireUser: FireUser?
+    var numSections: Int?
+    
+    @IBOutlet weak var CreateNewuserCell: UITableViewCell!
+    @IBOutlet weak var loginCell: UITableViewCell!
+    @IBOutlet weak var firstNameCell: UITableViewCell!
+    @IBOutlet weak var lastNameCell: UITableViewCell!
+    @IBOutlet weak var emailCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        firstNameCell.isHidden = true
+        lastNameCell.isHidden = true
+        emailCell.isHidden = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,20 +48,38 @@ class LoginTableViewController: UITableViewController {
     }
     
     @IBAction func loginButtonTouchedUpInside(_ sender: UIButton) {
-        fireUser?.login(userName: userNameTextField.text, password: passwordTextField.text)
+        fireUser?.login(userName: userNameTextField.text, password: passwordTextField.text) {
+            print("hello from loginButtonTouchedUpInside closure!")
+            //self.fireUser?.populateMessages()
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
     
-
+    @IBAction func createNewUserTouchedUpInside(_ sender: UIButton) {
+        print("Create New User Touched Up inside!!")
+        if firstNameCell.isHidden {
+            firstNameCell.isHidden = false
+            lastNameCell.isHidden = false
+            emailCell.isHidden = false
+            CreateNewuserCell.isHidden = true
+        } else {
+            fireUser?.createNewUser(userName: userNameTextField.text, password: passwordTextField.text, firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text) {
+                print("hello from creatNewuser closure!")
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return num
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
 */
     /*

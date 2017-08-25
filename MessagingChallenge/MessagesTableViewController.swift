@@ -23,14 +23,19 @@ class MessagesTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("in MessagesTableViewController.viewDidAppear")
+        //lets make sure we're actually supposed to be here...
         if isLoggedIn() {
-            print("logged in")
-        } else {
-            print("Not logged in")
-            //perform segue programatically
-            performSegue(withIdentifier: "showCreateAccount", sender: nil)
+            //Ok we are.  Now lets do what we need to do...
+            print("logged in, now lets do some other stuff.")
+            hasBeenLoggedIn(fireUser: fireUser) {
+                print("lets Load the view")
+                self.loadView()
+            }
             
+        } else {
+            print("Not logged in, better go to login screen.")
+            //not supposed to be here, perform segue programatically
+            performSegue(withIdentifier: "showCreateAccount", sender: nil)
         }
     }
 
@@ -43,23 +48,25 @@ class MessagesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print("in overriden table view function, telling table view how many rows in each section to draw.  messages.count: \(fireUser?.messages.count ?? 0)")
+        return fireUser?.messages.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.text = fireUser?.messagesAt(indexPath: indexPath).messageBody
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -102,8 +109,6 @@ class MessagesTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCreateAccount" {
-            print("about to go to login/create account view")
-            
             let controller = segue.destination as! LoginTableViewController
             
             controller.fireUser = fireUser

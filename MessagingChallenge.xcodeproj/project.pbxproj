@@ -16,6 +16,7 @@
 		19D138651F4370FF00ED7060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D138631F4370FF00ED7060 /* Main.storyboard */; };
 		19D138671F4370FF00ED7060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19D138661F4370FF00ED7060 /* Assets.xcassets */; };
 		19D1386A1F4370FF00ED7060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D138681F4370FF00ED7060 /* LaunchScreen.storyboard */; };
+		19DB0A691F5082BF0092A6F1 /* FlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB0A681F5082BF0092A6F1 /* FlowModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		19D138661F4370FF00ED7060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19D138691F4370FF00ED7060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19D1386B1F4370FF00ED7060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19DB0A681F5082BF0092A6F1 /* FlowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				195983261F44EB0B002027D1 /* Messages.swift */,
 				19D138631F4370FF00ED7060 /* Main.storyboard */,
 				19BBD2941F461363006E9B28 /* MessagesTableViewController.swift */,
+				19DB0A681F5082BF0092A6F1 /* FlowModel.swift */,
 				19BBD2961F461372006E9B28 /* LoginTableViewController.swift */,
 				19D138661F4370FF00ED7060 /* Assets.xcassets */,
 				19D138681F4370FF00ED7060 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				195983251F44E9C7002027D1 /* Utilities.swift in Sources */,
 				195983291F44ED91002027D1 /* FireUser.swift in Sources */,
 				195983271F44EB0B002027D1 /* Messages.swift in Sources */,
+				19DB0A691F5082BF0092A6F1 /* FlowModel.swift in Sources */,
 				19D138601F4370FF00ED7060 /* AppDelegate.swift in Sources */,
 				19BBD2951F461363006E9B28 /* MessagesTableViewController.swift in Sources */,
 				19BBD2971F461372006E9B28 /* LoginTableViewController.swift in Sources */,

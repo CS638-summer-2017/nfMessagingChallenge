@@ -8,16 +8,6 @@
 
 import Foundation
 
-/*
-func mainDemo() {
-    //jumps us to the main thread, code done here is in the main thread
-    DispatchQueue.main.sync {
-        <#code#>
-    }
-    
-}
-*/
-
 func isFirstLaunch() -> Bool {
     let defaults = UserDefaults.standard
     
